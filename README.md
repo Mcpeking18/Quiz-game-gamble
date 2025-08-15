@@ -1,10 +1,5 @@
-Got it — here’s the **full `README.md` file** exactly as you can save it:
-
----
-
 **README.md**
 
-````markdown
 # Quiz Game Gamble 🎯
 
 A fun Python CLI quiz game where your winnings (or losses) depend on your answers!  
@@ -26,7 +21,6 @@ If you go negative, you owe the game! 😈
    ```bash
    git clone https://github.com/YOURUSERNAME/Quiz-game-gamble.git
    ```
-````
 
 2. Run the game:
 
@@ -48,5 +42,3 @@ If you go negative, you owe the game! 😈
 ## Author
 
 **MCPEKING18** — Learning Python one quiz at a time! 🐍
-
-
