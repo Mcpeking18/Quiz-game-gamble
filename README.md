@@ -23,8 +23,9 @@ If you go negative, you owe the game! 😈
 
 ## How to Run
 1. Clone the repository:
-   ```bash
+   ````bash
    git clone https://github.com/YOURUSERNAME/Quiz-game-gamble.git
+   ```
 ````
 
 2. Run the game:
@@ -47,3 +48,4 @@ If you go negative, you owe the game! 😈
 ## Author
 
 **MCPEKING18** — Learning Python one quiz at a time! 🐍
+
