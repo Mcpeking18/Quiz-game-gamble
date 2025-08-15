@@ -43,21 +43,17 @@ QuestionsDic = {
         }
 }
 
-# for i in QuestionsDic:
-#     SetDic.add(i)   #using the unordered ness of sets :>
-
-def randomlist(D):
-    l = []
-    l2 = []
-    s=[]
+def randomlist(D): #my own list randomiser so ofc not efficient 
+    list1 = []
+    list2 = []
     for i in D:
-        l.append(i)
-    while l:
-        idx = random.randint(0, len(l) - 1)
-        l2.append(l.pop(idx))
-    return l2
+        list1.append(i)
+    while list1:
+        temp = random.randint(0, len(list1) - 1)
+        list2.append(list1.pop(temp))
+    return list2
 
-def answercheck(ans,dic,i):
+def answercheck(ans,dic,i):  #this one checks answer as the name suggest
     global correct,wrong,catch1
     if ans in Shuffled_Options and ans == dic[i]["answer"]:
         correct += 1
@@ -75,33 +71,35 @@ def answercheck(ans,dic,i):
             return 1
         print(f"You've entered none of the options {catch1} times")
 
+wrong = 0
+correct = 0
+question_list = randomlist(list(QuestionsDic.keys()))  
+
 input('''Here are the rules to play this Game:
 It is a gambling game.
 Every correct answer doubles your money.
 Every wrong answer deducts 200% of your Starting amount from your Winning Amount.
 If your balance goes negative, you'll owe us the amount!
-Press Enter to continue...''')
+Press Enter to continue...''')    #here is the start of my code
 
-wrong = 0
-correct = 0
-start_money = int(input("\nSo how much money would you gamble : "))
-question_list = randomlist(list(QuestionsDic.keys()))
+start_money = int(input("\nSo how much money would you gamble : ")) #initial amount
 
 for i in question_list:
     print(f"\nHere's the question vvvv\n{i}")
-    # print(f"Here's the choices for your question : ")
-    Shuffled_Options = randomlist(QuestionsDic[i]["options"]) #now a contains a list of answers (randomised) from Questiondic
+
+    Shuffled_Options = randomlist(QuestionsDic[i]["options"])           #now a contains a list of answers (randomised) from Questiondic
     temp = 0
     for j in Shuffled_Options:
         temp+=1
-        print(f"{temp}). {j}",end="         ")
-    print()
-    catch1 = 0
-    catch2 = 0
+        print(f"{temp}).{j.title()}",end="         ")  #shows options in a nice way :D
+        print()
+
+    catch1 = 0           #just fun lil element of tell user oh you typed none this many times
+    catch2 = 0           #same as above
     while True:
-        answer = input("\nEnter the Your answer : ").lower()
-        try:
-            if (int(answer)-1) not in range(len(Shuffled_Options)):
+        answer = input("Enter the Your answer : ").lower()
+        try:            #this one here is if user types the number of the answer if does not get converted to int it goes normally
+            if int(answer)-1 not in range(len(Shuffled_Options)):         #just a failsafe if they type option 100 or smth
                 print("Bro there is no option like that redo")
                 catch2 += 1
                 print(f"You've entered none of the options {catch2} times")
@@ -111,15 +109,16 @@ for i in question_list:
                     break
                 continue
 
-            answer = Shuffled_Options[int(answer)-1]
-            checked = answercheck(answer,QuestionsDic,i)
+            answer = Shuffled_Options[int(answer)-1]            #real sht
+            checked = answercheck(answer,QuestionsDic,i)        #easily understandable sooo yeahhhh
             if checked == 0:
                 break
             elif checked == 1:
                 break
             else:
                 continue
-        except ValueError:
+
+        except ValueError:          #same as above but if user types the answer
             checked = answercheck(answer,QuestionsDic,i)
             if checked == 0:            
                 break
@@ -128,8 +127,8 @@ for i in question_list:
             else:
                 continue
 
-print(f"your total correct answer = {correct}")
-print(f"your total wrong answer = {wrong}")
+print(f"\nYour total correct answer = {correct}")
+print(f"Your total wrong answer = {wrong}")
 
 if correct != 0:
     money = (2**(correct-1)*start_money)-(2*start_money*wrong)
