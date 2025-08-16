@@ -3,7 +3,7 @@
 # Quiz Game Gamble 🎯
 
 A fun Python CLI quiz game where your winnings (or losses) depend on your answers!  
-Start with ₹10,000, double your money for each correct answer, but lose ₹10,000 for each wrong one.  
+Start with X amount, double your money for each correct answer, but lose twice of X for each wrong one.  
 If you go negative, you owe the game! 😈
 
 ---
