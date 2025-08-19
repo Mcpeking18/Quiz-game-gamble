@@ -19,7 +19,7 @@ If you go negative, you owe the game! 😈
 ## How to Run
 1. Clone the repository:
    ```bash
-   git clone https://github.com/YOURUSERNAME/Quiz-game-gamble.git
+   git clone https://github.com/Mcpeking18/Quiz-game-gamble
    ```
 
 2. Run the game:
