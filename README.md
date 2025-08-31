@@ -32,6 +32,7 @@ If you go negative, you owe the game! 😈
 
 ## Future Plans
 
+* Replaying the game
 * Add login system (user/admin).
 * Allow admin to add/remove questions.
 * Store questions in an external file (JSON or text).
